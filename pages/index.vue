@@ -4,6 +4,7 @@
     <HomeRotatingText />
     <HomeVideo />
     <HomeScrolling />
+    <HomeProjects />
   </div>
 </template>
 

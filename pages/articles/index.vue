@@ -5,6 +5,9 @@
       <div v-for="a in products">
         <ArticleCard :article="a" />
       </div>
+      <div>
+        {{ response.data }}
+      </div>
     </div>
   </div>
 </template>

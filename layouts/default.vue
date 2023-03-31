@@ -1,5 +1,5 @@
 <template>
-  <!-- <header class="shadow-sm bg-gray-200">
+  <header class="shadow-sm bg-gray-200">
     <nav class="container mx-auto p-4 flex justify-between">
       <NuxtLink to="/" class="font-bold">Site Logo</NuxtLink>
       <ul class="flex gap-4">
@@ -8,7 +8,7 @@
         <li><NuxtLink to="/articles" class="btn">Articles</NuxtLink></li>
       </ul>
     </nav>
-  </header> -->
+  </header>
 
   <!-- COMMENT -->
   <!-- COMMENT -->
