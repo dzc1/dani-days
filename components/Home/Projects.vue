@@ -23,7 +23,7 @@
         <!-- Img Container -->
         <img
           class="rounded-7xl"
-          :src="`http://localhost:1337${project.attributes.cover.data.attributes.url}`"
+          :src="project.attributes.project_image_cover_url"
           alt=""
         />
         <!-- Project Mockup's -->
