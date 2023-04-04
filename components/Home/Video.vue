@@ -1,11 +1,11 @@
 <template>
   <section
-    class="relative flex items-center justify-center overflow-hidden p-12"
+    class="relative flex items-center justify-center overflow-hidden md:p-12"
   >
     <div
-      class="relative z-30 text-2xl text-white bg-[#1E1511] bg-opacity-70 w-3/4"
+      class="relative z-30 text-xl md:text-2xl text-white bg-[#1E1511] bg-opacity-70 w-4/5 md:w-3/4"
     >
-      <div class="text-center font-light p-14">
+      <div class="text-center font-light p-8 md:p-14">
         <h4 class="mb-8">Hi there, I'm <span class="font-bold">Dani</span></h4>
         <p>A <span class="font-bold">UX/UI Designer</span> based Barcelona.</p>
         <p class="mb-8">
@@ -26,7 +26,7 @@
         </p>
       </div>
     </div>
-    <video autoplay loop muted class="w-full object-cover absolute z-10">
+    <video autoplay loop muted class="w-full object-cover absolute z-10 h-full">
       <source :src="videoUrl" type="video/mp4" />
     </video>
   </section>
@@ -36,7 +36,7 @@
 import { ref } from "vue";
 
 const videoUrl = ref(
-  "https://res.cloudinary.com/dnsnkrcru/video/upload/v1679998793/dani-web/dani-img-testing-folder/Home/Biography_video_k1tl5o.mp4"
+  "https://res.cloudinary.com/dnsnkrcru/video/upload/v1680540610/dani-web/Homepage/section-video/Biography_video_wdkgsc.mp4"
 );
 </script>
 

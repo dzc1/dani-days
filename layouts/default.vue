@@ -9,16 +9,13 @@
       </ul>
     </nav>
   </header>
-
-  <!-- COMMENT -->
-  <!-- COMMENT -->
-  <!-- COMMENT -->
-
   <!-- Page Content -->
   <!-- Using the Slot component from nuxt3 -->
-  <div class="">
-    <slot />
-  </div>
+  <slot />
+  <!-- Footer Content -->
+  <footer>
+    <FooterComponent />
+  </footer>
 </template>
 
 <script setup></script>

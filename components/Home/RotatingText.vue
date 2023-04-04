@@ -5,7 +5,7 @@
     <div>
       <span>I Love </span>
       <span
-        class="font-bold"
+        class="font-bold typing"
         v-for="(sentence, index) in sentences"
         :key="index"
       >
@@ -43,11 +43,11 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.typewriter {
-  /* display: inline-block; */
-  /* overflow: hidden; */
-  /* animation: typing 2s steps(12, end) infinite; */
-}
+/* .typing {
+  display: inline-block;
+  overflow: hidden;
+  animation: typing 2s steps(12, end) infinite;
+} */
 
 @keyframes typing {
   from {

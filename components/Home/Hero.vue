@@ -97,7 +97,7 @@ import { ref } from "vue";
 // CONTACT SECTION LOGIC
 // Contact Hover Section
 const contactImg = ref(
-  "https://res.cloudinary.com/dnsnkrcru/image/upload/v1679998806/dani-web/dani-img-testing-folder/Home/Hero%20Section%20images/Contact_me-hover_rrkavp.png"
+  "https://res.cloudinary.com/dnsnkrcru/image/upload/v1680523704/dani-web/Homepage/section-hero/contact-hero-bg_noc8bz.png"
 );
 const contactHeading = ref("Contact");
 const contactText = ref(
@@ -116,6 +116,7 @@ const contactSectionHover = () => {
     title.classList.add("opacity-70");
   }
 };
+
 // -------------------------------------------
 // End Logic Section
 // -------------------------------------------
@@ -125,7 +126,7 @@ const contactSectionHover = () => {
 // WORK SECTION LOGIC
 // work Hover Section
 const workImg = ref(
-  "https://res.cloudinary.com/dnsnkrcru/image/upload/v1679998806/dani-web/dani-img-testing-folder/Home/Hero%20Section%20images/Work-hover_ocplpd.png"
+  "https://res.cloudinary.com/dnsnkrcru/image/upload/v1680523704/dani-web/Homepage/section-hero/hero-work-bg_xqkckf.png"
 );
 const workHeading = ref("Work");
 const workText = ref(
@@ -154,7 +155,7 @@ const workSectionHover = () => {
 // BIOGRAPHY SECTION LOGIC
 // Biography Hover Section
 const bioImg = ref(
-  "https://res.cloudinary.com/dnsnkrcru/image/upload/v1679998806/dani-web/dani-img-testing-folder/Home/Hero%20Section%20images/Biography-hover_prkpay.png"
+  "https://res.cloudinary.com/dnsnkrcru/image/upload/v1680523704/dani-web/Homepage/section-hero/bio-hero-bg_thxe2r.png"
 );
 const bioHeading = ref("Biography");
 const bioText = ref(

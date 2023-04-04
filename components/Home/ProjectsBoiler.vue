@@ -8,6 +8,14 @@
       @mouseenter="cardHover[index] = !cardHover[index]"
       @mouseleave="cardHover[index] = !cardHover[index]"
     >
+      <!-- <button
+        @mouseenter="cardHover[index] = !cardHover[index]"
+        @mouseout="cardHover[index] = !cardHover[index]"
+        class="bg-blue-500 p-4 m-4"
+      >
+        Hover Me - Daniela
+      </button>
+      <span>{{ cardHover[index] }} </span> -->
       <div class="relative">
         <!-- Opacity Container -->
         <div
@@ -15,6 +23,12 @@
           v-show="cardHover[index]"
         ></div>
         <div class="absolute z-30 top-0 left-0 pl-8 pt-8 w-1/4">
+          <!-- <p
+            v-show="cardHover[index]"
+            @click="cardHover[index] = !cardHover[index]"
+          >
+            close
+          </p> -->
           <img
             :class="cardHover[index] ? '' : 'hidden'"
             :src="project.attributes.project_logo_url"
@@ -23,12 +37,23 @@
           />
         </div>
 
+        <!-- Close CTA -->
+        <!-- <div
+          class="md:hidden flex justify-center"
+          @click="cardHover[index] = !cardHover[index]"
+        >
+          <button
+            v-show="cardHover[index]"
+            class="absolute z-30 top-10 right-0 bg-white text-black"
+          >
+            close
+          </button>
+        </div> -->
         <!-- Img Container -->
         <div
           v-show="!cardHover[index]"
           class="bg-black absolute z-30 top-0 h-full w-full opacity-70"
         ></div>
-        <!-- Project Background Cover IMG -->
         <img :src="project.attributes.project_image_cover_url" alt="" />
         <!-- Project Mockup's -->
         <div class="absolute z-20 top-1/4" v-if="cardHover[index]">
@@ -60,7 +85,6 @@
           :src="project.attributes.project_logo_url"
           alt=""
         />
-        <!-- Mobile CTA - VIEW PROJECT -->
         <div
           class="md:hidden flex justify-center"
           @click="cardHover[index] = !cardHover[index]"
