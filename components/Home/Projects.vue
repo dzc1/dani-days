@@ -8,6 +8,10 @@
       @mouseenter="cardHover[index] = !cardHover[index]"
       @mouseleave="cardHover[index] = !cardHover[index]"
     >
+      <!-- <p>{{ project.attributes.slug }}</p>
+      <NuxtLink class="bg-red-500" :to="`/projects/${project.attributes.slug}`"
+        >VIEW DETAILS</NuxtLink
+      > -->
       <div class="relative">
         <!-- Opacity Container -->
         <div
@@ -34,20 +38,20 @@
         <div class="absolute z-20 top-1/4" v-if="cardHover[index]">
           <div class="flex items-center justify-center">
             <div class="relative w-10/12">
-              <img
-                :src="project.attributes.project_desktop_cover_sample_url"
-                v-if="project.attributes.project_desktop_cover_sample_url"
-                alt=""
-                class="z-20"
-                id="desktop-img"
-              />
-              <img
-                v-if="project.attributes.project_mobile_cover_sample_url"
-                :src="project.attributes.project_mobile_cover_sample_url"
-                alt=""
-                id="mobile-img"
-                class="w-1/4 z-30 absolute -right-4 -bottom-8 pt-8"
-              />
+              <NuxtLink :to="`/projects/${project.attributes.slug}`"
+                ><img
+                  :src="project.attributes.project_desktop_cover_sample_url"
+                  v-if="project.attributes.project_desktop_cover_sample_url"
+                  alt=""
+                  class="z-20"
+                  id="desktop-img" />
+                <img
+                  v-if="project.attributes.project_mobile_cover_sample_url"
+                  :src="project.attributes.project_mobile_cover_sample_url"
+                  alt=""
+                  id="mobile-img"
+                  class="w-1/4 z-30 absolute -right-4 -bottom-8 pt-8"
+              /></NuxtLink>
             </div>
           </div>
         </div>
@@ -85,8 +89,18 @@ import { ref } from "vue";
 console.log("Projects from Strapi:");
 
 const { data: projects } = await useFetch(
-  "http://localhost:1337/api/projects?populate=*"
+  "https://dani-days-backend.herokuapp.com/api/projects?populate=*"
 );
+
+// const { data: projects } = await useFetch(
+//   "http://localhost:1337/api/projects?populate=*"
+// );
+console.log(projects);
+
+// Deployed Url
+// https://dani-days-backend.herokuapp.com/
+// Local URL
+// http://localhost:1337/api/projects
 
 const cardHover = ref(Array(projects.data));
 </script>

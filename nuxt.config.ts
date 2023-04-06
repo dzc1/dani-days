@@ -1,6 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@nuxtjs/tailwindcss"],
+  modules: [
+    // Tailwind CSS
+    "@nuxtjs/tailwindcss",
+  ],
   app: {
     head: {
       title: "Daniela Dias - Website Portfolio",
