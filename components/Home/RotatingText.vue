@@ -2,23 +2,17 @@
   <section
     class="h-[600px] flex items-center justify-center bg-white font-extralight text-4xl"
   >
-    <div>
-      <span>I Love </span>
-      <span
-        class="font-bold typing"
-        v-for="(sentence, index) in sentences"
-        :key="index"
-      >
-        <span v-if="visible === index">{{ sentence }}</span>
-      </span>
-    </div>
+    <h1>
+      I love <span class="font-bold">{{ part }}</span>
+    </h1>
   </section>
 </template>
 
 <script setup>
-import { reactive, ref, onMounted } from "vue";
+import { ref, onMounted } from "vue";
 
-const sentences = reactive([
+// NEW TEST
+const words = [
   "to design",
   "cats",
   "sleeping",
@@ -28,37 +22,47 @@ const sentences = reactive([
   "festivals",
   "the beach",
   "traveling",
-]);
-const visible = ref(0);
+];
+let part = ref("");
+let i = ref(0);
+let offset = ref(0);
+let forwards = ref(true);
+let skipCount = ref(0);
+const skipDelay = 15;
+const speed = 60;
 
-const displayText = () => {
-  visible.value = (visible.value + 1) % sentences.length;
+const wordFlick = () => {
+  setInterval(() => {
+    if (forwards.value) {
+      if (offset.value >= words[i.value].length) {
+        skipCount.value++;
+        if (skipCount.value === skipDelay) {
+          forwards.value = false;
+          skipCount.value = 0;
+        }
+      }
+    } else {
+      if (offset.value === 0) {
+        forwards.value = true;
+        i.value++;
+        offset.value = 0;
+        if (i.value >= words.length) {
+          i.value = 0;
+        }
+      }
+    }
+    part.value = words[i.value].substr(0, offset.value);
+    if (skipCount.value === 0) {
+      if (forwards.value) {
+        offset.value++;
+      } else {
+        offset.value--;
+      }
+    }
+  }, speed);
 };
 
 onMounted(() => {
-  setInterval(() => {
-    displayText();
-  }, 2000);
+  wordFlick();
 });
 </script>
-
-<style scoped>
-/* .typing {
-  display: inline-block;
-  overflow: hidden;
-  animation: typing 2s steps(12, end) infinite;
-} */
-
-@keyframes typing {
-  from {
-    width: 0%;
-  }
-
-  to {
-    width: 100%;
-  }
-}
-#dynamicContent {
-  white-space: nowrap;
-}
-</style>
