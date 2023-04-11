@@ -22,11 +22,27 @@
             @mouseout="workSectionHover"
           >
             <div class="card-padding">
-              <h4 id="work-heading" class="opacity-70">{{ workHeading }}</h4>
-              <p class="w-1/8" v-if="workHover">
-                {{ workText }}
-              </p>
-              <hr />
+              <div
+                :class="
+                  workHover ? 'animate__animated animate__slideInUp' : ' '
+                "
+              >
+                <h4 id="work-heading" class="opacity-70">
+                  {{ workHeading }}
+                </h4>
+                <p class="w-1/8" v-if="workHover">
+                  {{ workText }}
+                </p>
+              </div>
+
+              <div
+                class="w-1/2 h-0.5 transition-all ease-in-out bg-white opacity-50"
+                :class="
+                  workHover
+                    ? 'w-full opacity-100 duration-700'
+                    : ' duration-200'
+                "
+              ></div>
             </div>
           </div>
         </div>
@@ -48,13 +64,22 @@
             @mouseout="bioSectionHover"
           >
             <div class="card-padding">
-              <h4 id="bio-heading" class="opacity-70">
-                {{ bioHeading }}
-              </h4>
-              <p v-if="bioHover" class="w-1/8">
-                {{ bioText }}
-              </p>
-              <hr />
+              <div
+                :class="bioHover ? 'animate__animated animate__slideInUp' : ''"
+              >
+                <h4 id="bio-heading" class="opacity-70">
+                  {{ bioHeading }}
+                </h4>
+                <p v-if="bioHover" class="w-1/8">
+                  {{ bioText }}
+                </p>
+              </div>
+              <div
+                class="w-1/2 h-0.5 transition-all ease-in-out bg-white opacity-50"
+                :class="
+                  bioHover ? 'w-full opacity-100 duration-700' : ' duration-200'
+                "
+              ></div>
             </div>
           </div>
         </div>
@@ -75,14 +100,27 @@
             @mouseover="contactSectionHover"
             @mouseout="contactSectionHover"
           >
-            <div class="mb-24">
-              <h4 id="contact-heading" class="opacity-70">
-                {{ contactHeading }}
-              </h4>
-              <p v-if="contactHover" class="w-1/8">
-                {{ contactText }}
-              </p>
-              <hr />
+            <div class="card-padding">
+              <div
+                :class="
+                  contactHover ? 'animate__animated animate__slideInUp' : ' '
+                "
+              >
+                <h4 id="contact-heading" class="opacity-70">
+                  {{ contactHeading }}
+                </h4>
+                <p v-if="contactHover" class="w-1/8">
+                  {{ contactText }}
+                </p>
+              </div>
+              <div
+                class="w-1/2 h-0.5 transition-all ease-in-out bg-white opacity-50"
+                :class="
+                  contactHover
+                    ? 'w-full opacity-100 duration-700'
+                    : ' duration-200'
+                "
+              ></div>
             </div>
           </div>
         </div>
@@ -93,6 +131,7 @@
 
 <script setup>
 import { ref } from "vue";
+import "animate.css";
 
 // CONTACT SECTION LOGIC
 // Contact Hover Section
@@ -139,13 +178,13 @@ const workSectionHover = () => {
   //hover.value = !hover.value;
   workHover.value = !workHover.value;
   const title = document.getElementById("work-heading");
-  console.log(title);
   if (workHover.value) {
     title.classList.remove("opacity-70");
   } else {
     title.classList.add("opacity-70");
   }
 };
+
 // -------------------------------------------
 // End Logic Section
 // -------------------------------------------
@@ -219,5 +258,13 @@ const bioSectionHover = () => {
 
 .card-opacity {
   @apply bg-opacity-60;
+}
+
+/* Animation References */
+.animate__animated.animate__slideInUp {
+  --animate-duration: 0.5s;
+}
+.animate__animated.animate__slideOutDown {
+  --animate-duration: 0.5s;
 }
 </style>
