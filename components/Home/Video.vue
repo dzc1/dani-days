@@ -1,6 +1,6 @@
 <template>
   <section
-    class="relative flex items-center justify-center overflow-hidden md:p-12"
+    class="relative flex items-center justify-center overflow-hidden md:p-12 h-[850px]"
   >
     <div
       class="relative z-30 text-xl md:text-2xl text-white bg-[#1E1511] bg-opacity-70 w-4/5 md:w-3/4"
@@ -39,10 +39,3 @@ const videoUrl = ref(
   "https://res.cloudinary.com/dnsnkrcru/video/upload/v1680540610/dani-web/Homepage/section-video/Biography_video_wdkgsc.mp4"
 );
 </script>
-
-<style scoped>
-/* Add any necessary styles here, such as height for the section */
-section {
-  height: 650px;
-}
-</style>
