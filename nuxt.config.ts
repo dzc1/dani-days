@@ -26,6 +26,7 @@ export default defineNuxtConfig({
         },
       ],
     },
+    // layoutTransition: { name: "layout", mode: "out-in" },
   },
   runtimeConfig: {
     currencyKey: process.env.CURRENCY_API_KEY,

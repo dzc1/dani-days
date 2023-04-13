@@ -16,7 +16,11 @@
         <div class="opacity-container" v-show="cardHover[index]"></div>
         <div class="top-right-logo">
           <img
-            :class="cardHover[index] ? '' : 'hidden'"
+            :class="
+              cardHover[index]
+                ? 'animate__animated animate__fadeIn'
+                : 'hidden animate__animated animate__fadeOut'
+            "
             :src="project.attributes.project_logo_url"
             alt=""
             v-show="cardHover[index]"
@@ -28,7 +32,15 @@
         <!-- Project Background Cover IMG -->
         <img :src="project.attributes.project_image_cover_url" alt="" />
         <!-- Project Mockup's -->
-        <div class="mockups" v-if="cardHover[index]">
+        <div
+          class="mockups"
+          v-if="cardHover[index]"
+          :class="
+            cardHover[index]
+              ? 'animate__animated animate__fadeIn'
+              : 'animate__animated animate__fadeOut'
+          "
+        >
           <div class="mockups-flex-container">
             <div class="mockups-inner-container">
               <NuxtLink :to="`/projects/${project.attributes.slug}`"
@@ -52,7 +64,11 @@
         <img
           id="project-logo"
           v-else
-          :class="cardHover[index] ? 'hidden' : ''"
+          :class="
+            cardHover[index]
+              ? 'hidden animate__animated animate__fadeOut'
+              : 'animate__animated animate__fadeIn'
+          "
           :src="project.attributes.project_logo_url"
           alt=""
         />
@@ -71,7 +87,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import "animate.css";
 
 // Test to get projects from strapi using nuxt useFetch() from NUXT3
 console.log("Projects from Strapi:");

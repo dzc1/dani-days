@@ -130,7 +130,6 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
 import "animate.css";
 
 // CONTACT SECTION LOGIC

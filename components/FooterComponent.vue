@@ -1,5 +1,5 @@
 <template>
-  <section class="2xl:h-[350px] md:h-[600px] bg-[#121212]">
+  <footer class="2xl:h-[350px] md:h-[600px] bg-[#121212]">
     <div class="p-4 md:p-8">
       <div class="flex flex-wrap items-baseline justify-center">
         <!-- Left Side -->
@@ -45,7 +45,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </footer>
 </template>
 
 <script setup>
