@@ -1,11 +1,7 @@
 <template>
-  <section
-    class="relative flex items-center justify-center overflow-hidden md:p-12 h-[850px]"
-  >
-    <div
-      class="relative z-30 text-xl md:text-2xl text-white bg-[#1E1511] bg-opacity-70 w-4/5 md:w-3/4"
-    >
-      <div class="text-center font-light p-8 md:p-14">
+  <section>
+    <div>
+      <div>
         <h4 class="mb-8">Hi there, I'm <span class="font-bold">Dani</span></h4>
         <p>A <span class="font-bold">UX/UI Designer</span> based Barcelona.</p>
         <p class="mb-8">
@@ -26,7 +22,7 @@
         </p>
       </div>
     </div>
-    <video autoplay loop muted class="w-full object-cover absolute z-10 h-full">
+    <video autoplay loop muted>
       <source :src="videoUrl" type="video/mp4" />
     </video>
   </section>
@@ -39,3 +35,21 @@ const videoUrl = ref(
   "https://res.cloudinary.com/dnsnkrcru/video/upload/v1680540610/dani-web/Homepage/section-video/Biography_video_wdkgsc.mp4"
 );
 </script>
+
+<style scoped>
+section {
+  @apply relative flex items-center justify-center overflow-hidden md:p-12 h-[850px];
+}
+
+section > div {
+  @apply relative z-30 text-xl md:text-2xl text-white bg-[#1E1511] bg-opacity-70 w-4/5 md:w-3/4;
+}
+
+section > div > div {
+  @apply text-center font-light p-8 md:p-14;
+}
+
+section video {
+  @apply w-full object-cover absolute z-10 h-full;
+}
+</style>

@@ -1,7 +1,5 @@
 <template>
-  <section
-    class="h-[600px] flex items-center justify-center bg-white font-extralight text-4xl"
-  >
+  <section class="rotating-text-section">
     <h1>
       I love <span class="font-bold">{{ part }}</span>
     </h1>
@@ -66,3 +64,9 @@ onMounted(() => {
   wordFlick();
 });
 </script>
+
+<style scoped>
+.rotating-text-section {
+  @apply h-[600px] flex items-center justify-center bg-white font-extralight text-4xl;
+}
+</style>
