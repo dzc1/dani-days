@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HomeHero />
+    <HomeHeroObject />
     <HomeRotatingText />
     <HomeVideo />
     <HomeScrolling />
