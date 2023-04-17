@@ -178,7 +178,7 @@
 
 <script setup>
 import "animate.css";
-import "vue3-carousel/dist/carousel.css";
+import "assets/css/carousel.css";
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 
 const daniela = reactive({
@@ -256,7 +256,7 @@ const bioSectionHover = () => {
 
 /* Card CSS */
 .card {
-  @apply w-full lg:w-1/3 relative h-[1000px] md:h-[760px];
+  @apply w-full lg:w-1/3 relative h-[790px] md:h-[760px];
 }
 
 .card img {
@@ -268,7 +268,7 @@ const bioSectionHover = () => {
 }
 
 .card-padding {
-  @apply mb-48 md:mb-24;
+  @apply mb-40 md:mb-24;
 }
 
 .card-text-container h4 {
@@ -293,10 +293,5 @@ const bioSectionHover = () => {
 }
 .animate__animated.animate__slideOutDown {
   --animate-duration: 0.5s;
-}
-
-/* Carousel Pagination Styling */
-.carousel__pagination-button {
-  @apply bg-red-500;
 }
 </style>
