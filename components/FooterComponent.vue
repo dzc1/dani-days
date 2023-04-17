@@ -4,21 +4,21 @@
       <div class="flex flex-wrap items-baseline justify-center">
         <!-- Left Side -->
         <div
-          class="w-full md:w-2/3 mb-4 md:mb-0 text-white font-extralight p-4 md:p-8"
+          class="w-full md:w-2/3 mb-4 md:mb-0 text-white font-extralight p-4 md:p-8 text-lg md:text-xl"
         >
-          <p class="text-xl mb-4">
+          <p class="mb-4">
             Thank you for taking the time to read through my portfolio. I hope
             you got a glimpse of who I am and as a UX/UI designer.
           </p>
-          <p class="text-xl mb-4">
+          <p class="mb-4">
             If you're curious about anything or would like to chat further about
             a potential project or collaboration, don't hesitate to reach out to
             me
           </p>
-          <p class="text-xl mb-4">
+          <p class="mb-4">
             I'm always open to explore new opportunities and collaborations
           </p>
-          <p class="text-xl mb-4">
+          <p class="mb-4">
             Thanks again for your interest, and I look forward to hearing from
             you soon
           </p>
