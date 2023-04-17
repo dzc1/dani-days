@@ -1,6 +1,6 @@
 <template>
   <!-- TEST ON PROJECTS FROM STRAPI -->
-  <section>
+  <section id="desktop">
     <div
       v-for="(project, index) in projects.data"
       :key="index"
@@ -84,6 +84,55 @@
       </div>
     </div>
   </section>
+  <section id="mobile">
+    <div v-for="(project, index) in projects.data" :key="index">
+      <!-- <p>{{ project.attributes.slug }}</p>
+      <NuxtLink class="bg-red-500" :to="`/projects/${project.attributes.slug}`"
+        >VIEW DETAILS</NuxtLink
+      > -->
+      <div class="project-container">
+        <!-- Opacity Container -->
+        <!-- <div class="opacity-container" v-show="cardHover[index]"></div> -->
+        <!-- <div class="top-right-logo">
+          <img
+            :class="
+              cardHover[index]
+                ? 'animate__animated animate__fadeIn'
+                : 'hidden animate__animated animate__fadeOut'
+            "
+            :src="project.attributes.project_logo_url"
+            alt=""
+            v-show="cardHover[index]"
+          />
+        </div> -->
+
+        <!-- Img Container -->
+        <div v-show="!cardHover[index]" class="opacity-container-project"></div>
+        <!-- Project Background Cover IMG -->
+        <img :src="project.attributes.project_image_cover_url" alt="" />
+
+        <!-- Project Logo -->
+        <NuxtLiink :to="`/projects/${project.attributes.slug}`">
+          <img
+            id="project-logo"
+            :class="
+              cardHover[index]
+                ? 'hidden animate__animated animate__fadeOut'
+                : 'animate__animated animate__fadeIn'
+            "
+            :src="project.attributes.project_logo_url"
+            alt=""
+        /></NuxtLiink>
+
+        <!-- Mobile CTA - VIEW PROJECT -->
+        <div class="mobile-container">
+          <NuxtLink :to="`/projects/${project.attributes.slug}`">
+            <button>View</button>
+          </NuxtLink>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script setup>
@@ -110,6 +159,12 @@ const cardHover = ref(Array(projects.data));
 </script>
 
 <style scoped>
+#desktop {
+  @apply hidden md:block;
+}
+#mobile {
+  @apply block md:hidden;
+}
 section {
   @apply flex flex-wrap md:mb-0 md:w-full;
 }
@@ -157,7 +212,7 @@ section > div {
   @apply md:hidden flex justify-center;
 }
 
-.mobile-container > button {
-  @apply absolute z-30 top-[70%] bg-white text-black p-2 rounded w-1/3;
+.mobile-container button {
+  @apply absolute z-30 left-1/3 bottom-1/4 bg-slate-100 text-black cursor-pointer px-2 py-1 rounded w-1/3;
 }
 </style>

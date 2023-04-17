@@ -67,6 +67,6 @@ onMounted(() => {
 
 <style scoped>
 .rotating-text-section {
-  @apply h-[600px] flex items-center justify-center bg-white font-extralight text-4xl;
+  @apply h-[300px] md:h-[600px] flex items-center justify-center bg-white font-extralight text-xl md:text-4xl;
 }
 </style>

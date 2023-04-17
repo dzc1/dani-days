@@ -2,7 +2,7 @@
   <!-- Header -->
   <header class="shadow-sm bg-white">
     <nav class="container mx-auto p-4 flex justify-between">
-      <NuxtLink to="/">Site Logo</NuxtLink>
+      <NuxtLink to="/">Site Logiio</NuxtLink>
     </nav>
   </header>
   <!-- Page Content -->

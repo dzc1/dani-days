@@ -159,7 +159,7 @@ if (!project.value) {
 
 // using definePageMeta method from NUXT3 in order to define meta information such as the type of 'layout' file created.
 definePageMeta({
-  layout: "articles",
+  layout: "default",
 });
 </script>
 

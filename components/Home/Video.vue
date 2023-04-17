@@ -1,8 +1,8 @@
 <template>
   <section>
     <div>
-      <div>
-        <h4 class="mb-8">Hi there, I'm <span class="font-bold">Dani</span></h4>
+      <div class="text-lg md:text-xl">
+        <p class="mb-8">Hi there, I'm <span class="font-bold">Dani</span></p>
         <p>A <span class="font-bold">UX/UI Designer</span> based Barcelona.</p>
         <p class="mb-8">
           Yes, I know it sounds crazy, but my background is in dentistry. Long
@@ -38,11 +38,11 @@ const videoUrl = ref(
 
 <style scoped>
 section {
-  @apply relative flex items-center justify-center overflow-hidden md:p-12 h-[850px];
+  @apply relative flex items-center justify-center overflow-hidden md:p-12 h-[900px] md:h-[850px];
 }
 
 section > div {
-  @apply relative z-30 text-xl md:text-2xl text-white bg-[#1E1511] bg-opacity-70 w-4/5 md:w-3/4;
+  @apply relative z-30 text-xl md:text-2xl text-white bg-[#1E1511] bg-opacity-70 w-4/5 md:w-3/4 rounded-md;
 }
 
 section > div > div {

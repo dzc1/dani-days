@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="desktop">
     <div class="section-container">
       <div class="card-container">
         <!-- Work Section -->
@@ -7,12 +7,12 @@
           <div class="bg-black bg-opacity-0">
             <img
               class="img-fluid"
-              :src="workImg"
+              :src="daniela.work.img"
               alt=""
               style="object-fit: cover"
             />
             <div
-              v-if="!workHover"
+              v-if="!daniela.work.hover"
               class="absolute top-0 left-0 w-full h-full bg-black card-opacity"
             ></div>
           </div>
@@ -24,21 +24,23 @@
             <div class="card-padding">
               <div
                 :class="
-                  workHover ? 'animate__animated animate__slideInUp' : ' '
+                  daniela.work.hover
+                    ? 'animate__animated animate__slideInUp'
+                    : ' '
                 "
               >
                 <h4 id="work-heading" class="opacity-70">
-                  {{ workHeading }}
+                  {{ daniela.work.heading }}
                 </h4>
-                <p class="w-1/8" v-if="workHover">
-                  {{ workText }}
+                <p class="w-1/8" v-if="daniela.work.hover">
+                  {{ daniela.work.text }}
                 </p>
               </div>
 
               <div
                 class="w-1/2 h-0.5 transition-all ease-in-out bg-white opacity-50"
                 :class="
-                  workHover
+                  daniela.work.hover
                     ? 'w-full opacity-100 duration-700'
                     : ' duration-200'
                 "
@@ -50,12 +52,12 @@
         <div class="card">
           <img
             class="img-fluid"
-            :src="bioImg"
+            :src="daniela.bio.img"
             alt=""
             style="object-fit: cover"
           />
           <div
-            v-if="!bioHover"
+            v-if="!daniela.bio.hover"
             class="absolute top-0 left-0 w-full h-full bg-black card-opacity"
           ></div>
           <div
@@ -65,19 +67,25 @@
           >
             <div class="card-padding">
               <div
-                :class="bioHover ? 'animate__animated animate__slideInUp' : ''"
+                :class="
+                  daniela.bio.hover
+                    ? 'animate__animated animate__slideInUp'
+                    : ''
+                "
               >
                 <h4 id="bio-heading" class="opacity-70">
-                  {{ bioHeading }}
+                  {{ daniela.bio.heading }}
                 </h4>
-                <p v-if="bioHover" class="w-1/8">
-                  {{ bioText }}
+                <p v-if="daniela.bio.hover" class="w-1/8">
+                  {{ daniela.bio.text }}
                 </p>
               </div>
               <div
                 class="w-1/2 h-0.5 transition-all ease-in-out bg-white opacity-50"
                 :class="
-                  bioHover ? 'w-full opacity-100 duration-700' : ' duration-200'
+                  daniela.bio.hover
+                    ? 'w-full opacity-100 duration-700'
+                    : ' duration-200'
                 "
               ></div>
             </div>
@@ -87,12 +95,12 @@
         <div class="card">
           <img
             class="img-fluid"
-            :src="contactImg"
+            :src="daniela.contact.img"
             alt=""
             style="object-fit: cover"
           />
           <div
-            v-if="!contactHover"
+            v-if="!daniela.contact.hover"
             class="absolute top-0 left-0 w-full h-full bg-black card-opacity"
           ></div>
           <div
@@ -103,20 +111,22 @@
             <div class="card-padding">
               <div
                 :class="
-                  contactHover ? 'animate__animated animate__slideInUp' : ' '
+                  daniela.contact.hover
+                    ? 'animate__animated animate__slideInUp'
+                    : ' '
                 "
               >
                 <h4 id="contact-heading" class="opacity-70">
-                  {{ contactHeading }}
+                  {{ daniela.contact.heading }}
                 </h4>
-                <p v-if="contactHover" class="w-1/8">
-                  {{ contactText }}
+                <p v-if="daniela.contact.hover" class="w-1/8">
+                  {{ daniela.contact.text }}
                 </p>
               </div>
               <div
                 class="w-1/2 h-0.5 transition-all ease-in-out bg-white opacity-50"
                 :class="
-                  contactHover
+                  daniela.contact.hover
                     ? 'w-full opacity-100 duration-700'
                     : ' duration-200'
                 "
@@ -127,97 +137,115 @@
       </div>
     </div>
   </section>
+  <section id="mobile">
+    <carousel :items-to-show="1" ref="carousel" :autoplay="3000">
+      <slide v-for="(col, index) in daniela" :key="index">
+        <div class="card">
+          <div class="bg-black bg-opacity-0">
+            <img
+              class="img-fluid"
+              :src="col.img"
+              alt=""
+              style="object-fit: cover"
+            />
+            <div
+              class="absolute top-0 left-0 w-full h-full bg-black card-opacity"
+            ></div>
+          </div>
+          <div class="card-text-container">
+            <div class="card-padding">
+              <h4 id="work-heading" class="opacity-90">
+                {{ col.heading }}
+              </h4>
+              <p class="w-1/8 opacity-90">
+                {{ col.text }}
+              </p>
+              <div
+                class="w-1/2 h-0.5 transition-all ease-in-out bg-white opacity-50"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </slide>
+
+      <template #addons>
+        <!-- <navigation /> -->
+        <pagination />
+      </template>
+    </carousel>
+  </section>
 </template>
 
 <script setup>
 import "animate.css";
+import "assets/css/carousel.css";
+import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 
-// CONTACT SECTION LOGIC
-// Contact Hover Section
-const contactImg = ref(
-  "https://res.cloudinary.com/dnsnkrcru/image/upload/v1680523704/dani-web/Homepage/section-hero/contact-hero-bg_noc8bz.png"
-);
-const contactHeading = ref("Contact");
-const contactText = ref(
-  "Let's collaborate and create meaningful data experiences together. Feel free to get in touch with me"
-);
-const contactHover = ref(false);
+const daniela = reactive({
+  contact: {
+    img: "https://res.cloudinary.com/dnsnkrcru/image/upload/v1680523704/dani-web/Homepage/section-hero/contact-hero-bg_noc8bz.png",
+    text: "Let's collaborate and create meaningful data experiences together. Feel free to get in touch with me",
+    heading: "Contact",
+    hover: false,
+  },
+  work: {
+    img: "https://res.cloudinary.com/dnsnkrcru/image/upload/v1680523704/dani-web/Homepage/section-hero/hero-work-bg_xqkckf.png",
+    text: "Explore my portfolio and experience some of my projects including Web, Apop and WebApp designs",
+    heading: "Work",
+    hover: false,
+  },
+  bio: {
+    img: "https://res.cloudinary.com/dnsnkrcru/image/upload/v1680523704/dani-web/Homepage/section-hero/bio-hero-bg_thxe2r.png",
+    text: "Discover the person behind the pixels and learn how my background and experiences shape my approach to designing for people",
+    heading: "Biography",
+    hover: false,
+  },
+});
 
 // Function to show/hide - contact section text
 const contactSectionHover = () => {
   //hover.value = !hover.value;
-  contactHover.value = !contactHover.value;
+  daniela.contact.hover = !daniela.contact.hover;
   const title = document.getElementById("contact-heading");
-  if (contactHover.value) {
+  if (daniela.contact.hover) {
     title.classList.remove("opacity-70");
   } else {
     title.classList.add("opacity-70");
   }
 };
-
-// -------------------------------------------
-// End Logic Section
-// -------------------------------------------
-
-// -------------------------------------------
-// -------------------------------------------
-// WORK SECTION LOGIC
-// work Hover Section
-const workImg = ref(
-  "https://res.cloudinary.com/dnsnkrcru/image/upload/v1680523704/dani-web/Homepage/section-hero/hero-work-bg_xqkckf.png"
-);
-const workHeading = ref("Work");
-const workText = ref(
-  "Explore my portfolio and experience some of my projects including Web, Apop and WebApp designs"
-);
-const workHover = ref(false);
 
 // Function to show/hide - work section text
 const workSectionHover = () => {
   //hover.value = !hover.value;
-  workHover.value = !workHover.value;
+  daniela.work.hover = !daniela.work.hover;
   const title = document.getElementById("work-heading");
-  if (workHover.value) {
+  if (daniela.work.hover) {
     title.classList.remove("opacity-70");
   } else {
     title.classList.add("opacity-70");
   }
 };
-
-// -------------------------------------------
-// End Logic Section
-// -------------------------------------------
-
-// -------------------------------------------
-// -------------------------------------------
-// BIOGRAPHY SECTION LOGIC
-// Biography Hover Section
-const bioImg = ref(
-  "https://res.cloudinary.com/dnsnkrcru/image/upload/v1680523704/dani-web/Homepage/section-hero/bio-hero-bg_thxe2r.png"
-);
-const bioHeading = ref("Biography");
-const bioText = ref(
-  "Discover the person behind the pixels and learn how my background and experiences shape my approach to designing for people"
-);
-const bioHover = ref(false);
 
 // Function to show/hide - work section text
 const bioSectionHover = () => {
   //hover.value = !hover.value;
-  bioHover.value = !bioHover.value;
+  daniela.bio.hover = !daniela.bio.hover;
   const title = document.getElementById("bio-heading");
-  if (bioHover.value) {
+  if (daniela.bio.hover) {
     title.classList.remove("opacity-70");
   } else {
     title.classList.add("opacity-70");
   }
 };
-// -------------------------------------------
-// End Logic Section
-// -------------------------------------------
 </script>
 
 <style scoped>
+#desktop {
+  @apply hidden md:block;
+}
+#mobile {
+  @apply block md:hidden;
+}
 .section-container {
   @apply mx-auto lg:max-w-none;
 }
@@ -228,7 +256,7 @@ const bioSectionHover = () => {
 
 /* Card CSS */
 .card {
-  @apply w-full lg:w-1/3 relative h-[760px];
+  @apply w-full lg:w-1/3 relative h-[790px] md:h-[760px];
 }
 
 .card img {
@@ -240,15 +268,15 @@ const bioSectionHover = () => {
 }
 
 .card-padding {
-  @apply mb-24;
+  @apply mb-40 md:mb-24;
 }
 
 .card-text-container h4 {
-  @apply text-white text-4xl mb-8   text-left font-extralight;
+  @apply text-white text-3xl md:text-4xl mb-8   text-left font-extralight;
 }
 
 .card-text-container p {
-  @apply text-white text-xl text-left mb-8 tracking-wide font-extralight;
+  @apply text-white  text-lg md:text-2xl text-left mb-8 tracking-wide font-extralight;
 }
 
 .card-text-container hr {
