@@ -120,7 +120,7 @@
     <div id="project-body" class="overflow-hidden h-full" v-else>
       <div
         @click="showUseCase"
-        class="sticky bg-black text-white text-center py-4"
+        class="fixed w-full bg-black text-white text-center py-4"
       >
         Close
       </div>

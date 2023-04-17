@@ -9,7 +9,7 @@
       </NuxtLink>
       <ul class="flex gap-4 text-white font-extralight">
         <li><NuxtLink to="/">Home</NuxtLink></li>
-        <li><NuxtLink to="/" class="btn">Contact</NuxtLink></li>
+        <!-- <li><NuxtLink to="/" class="btn">Contact</NuxtLink></li> -->
       </ul>
     </nav>
   </header>
