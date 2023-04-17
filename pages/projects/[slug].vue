@@ -1,5 +1,5 @@
 <template>
-  <section class="h-screen">
+  <section id="desktop" class="h-screen">
     <!-- TEST -->
     <!-- Left Side -->
     <section class="relative" v-if="projectData.boolean">
@@ -95,6 +95,45 @@
       </div>
     </section>
   </section>
+
+  <section id="mobile" class="overflow-hidden">
+    <div id="project-intro" class="overflow-hidden" v-if="projectData.boolean">
+      <div class="flex items-end" :style="bgImageStyle"></div>
+      <div class="p-10 w-full bg-black h-[400px] flex flex-col justify-end">
+        <div class="relative">
+          <img
+            class="absolute bottom-0 -left-10"
+            :src="projectData.logo"
+            alt=""
+          />
+        </div>
+        <p class="text-white font-extralight">
+          <VueMarkdown class="" :source="projectData.markDown" />
+        </p>
+        <a
+          class="inline-block w-full sm:w-auto py-2 text-left font-medium text-white rounded transition duration-250 cursor-pointer"
+          @click="showUseCase"
+          >Read Full Case</a
+        >
+      </div>
+    </div>
+    <div id="project-body" class="overflow-hidden h-full" v-else>
+      <div
+        @click="showUseCase"
+        class="sticky bg-black text-white text-center py-4"
+      >
+        Close
+      </div>
+      <VueMarkdown
+        class="text-[#121212] p-4 font-extralight text-xl md:text-4xl"
+        :source="projectData.body"
+      />
+      <div class="p-4">
+        <img :src="projectData.mockupsDesktop" class="mb-12" alt="" />
+        <img :src="projectData.mockupsMobile" alt="" />
+      </div>
+    </div>
+  </section>
 </template>
 
 <script setup>
@@ -161,9 +200,24 @@ if (!project.value) {
 definePageMeta({
   layout: "default",
 });
+
+const bgImageStyle = computed(() => ({
+  backgroundImage: `url(${projectData.backgroundImage})`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  height: "400px",
+}));
 </script>
 
 <style scoped>
+#desktop {
+  @apply hidden md:block;
+}
+#mobile {
+  @apply block md:hidden;
+}
+
 h2 {
   @apply font-bold;
 }
