@@ -160,7 +160,7 @@ const cardHover = ref(Array(projects.data));
 
 <style scoped>
 #desktop {
-  @apply hidden md:block;
+  @apply hidden md:flex;
 }
 #mobile {
   @apply block md:hidden;
