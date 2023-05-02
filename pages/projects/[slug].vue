@@ -124,10 +124,7 @@
       >
         Close
       </div>
-      <VueMarkdown
-        class="text-[#121212] p-4 font-extralight text-xl md:text-4xl"
-        :source="projectData.body"
-      />
+      <VueMarkdown class="prose" :source="projectData.body" />
       <div class="p-4">
         <img :src="projectData.mockupsDesktop" class="mb-12" alt="" />
         <img :src="projectData.mockupsMobile" alt="" />
